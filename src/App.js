@@ -6,7 +6,12 @@ import AddList from "./components/AddList";
 import DB from "./assets/db.json";
 
 function App() {
-  const [state, setState] = React.useState("heloo popy");
+  const [lists, setLists] = React.useState(
+    DB.lists.map(item => {
+      item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;
+      return item;
+    })
+  );
   return (
     <div className="todo">
       <div className="todo__sidebar">
@@ -32,24 +37,7 @@ function App() {
           ]}
         />
 
-        <List
-          items={[
-            {
-              color: "green",
-              name: "Покупки",
-              active: true,
-            },
-            {
-              color: "blue",
-              name: "Фронтенд",
-            },
-            {
-              color: "pink",
-              name: "Фильмы и сериалы",
-            },
-          ]}
-          isRemovable
-        />
+        <List items={lists} isRemovable />
         <AddList colors={DB.colors} />
       </div>
       <div className="todo__tasks"></div>

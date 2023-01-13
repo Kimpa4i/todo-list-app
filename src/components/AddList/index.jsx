@@ -8,6 +8,8 @@ import closeSvg from "../../assets/img/close.svg";
 const AddList = ({ colors }) => {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const [selectedColor, selectColor] = React.useState(colors[0].id);
+  const [inputValue, setInputValue] = React.useState("");
+  console.log(inputValue);
   return (
     <div className="add-list">
       <List
@@ -53,6 +55,8 @@ const AddList = ({ colors }) => {
             className="add-list__popup-close-btn"
           ></img>
           <input
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
             className="field"
             type="text"
             placeholder="Название папки"
