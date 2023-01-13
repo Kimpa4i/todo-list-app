@@ -5,11 +5,23 @@ import Badge from "../Badge";
 import "./AddListButton.scss";
 import closeSvg from "../../assets/img/close.svg";
 
-const AddList = ({ colors }) => {
+const AddList = ({ colors, onAdd }) => {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const [selectedColor, selectColor] = React.useState(colors[0].id);
   const [inputValue, setInputValue] = React.useState("");
-  console.log(inputValue);
+
+  const addlist = () => {
+    if (!inputValue) {
+      alert("Введите данные");
+      return;
+    }
+    onAdd({
+      id: Math.random(),
+      name: inputValue,
+      color: colors.filter(color => color.id === selectedColor)[0].name,
+    });
+  };
+
   return (
     <div className="add-list">
       <List
@@ -71,7 +83,9 @@ const AddList = ({ colors }) => {
               />
             ))}
           </div>
-          <button className="button">Добавить</button>
+          <button onClick={addlist} className="button">
+            Добавить
+          </button>
         </div>
       )}
     </div>
