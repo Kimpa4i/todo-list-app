@@ -1,6 +1,7 @@
 import React from "react";
 import List from "./components/List";
 import AddList from "./components/AddList";
+import Tasks from "./components/Tasks";
 // import listSvg from './assets/img/list.svg'
 // import addSvg from './assets/img/add.svg'
 import DB from "./assets/db.json";
@@ -43,10 +44,12 @@ function App() {
           ]}
         />
 
-        <List items={lists} isRemovable />
+        <List items={lists} isRemovable onRemove={obj => console.log(obj)} />
         <AddList onAdd={onAddList} colors={DB.colors} />
       </div>
-      <div className="todo__tasks"></div>
+      <div className="todo__tasks">
+        <Tasks />
+      </div>
     </div>
   );
 }
