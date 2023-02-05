@@ -28,7 +28,7 @@ body {
   &__sidebar {
     background-color: #e5e5e5;
     width: 200px;
-    height: calc(100% - 120px);
+    min-height: calc(100% - 120px);
     border-right: 1px solid #f1f1f1;
     padding: 60px 20px;
   }
@@ -39,6 +39,7 @@ body {
 }
 
 .button {
+  font-size: 14px;
   background: #4dd599;
   border-radius: 4px;
   padding: 10px;
@@ -53,9 +54,25 @@ body {
   &:active {
     background: darken(#4dd599, 10);
   }
+
+  &:disabled {
+    background: #908888;
+  }
+  &--grey {
+    background: #f4f6f8;
+    color: #9c9c9c;
+    &:hover {
+      background: darken(#f4f6f8, 6);
+    }
+
+    &:active {
+      background: darken(#f4f6f8, 10);
+    }
+  }
 }
 
 .field {
+  font-size: 14px;
   background: #ffffff;
   border: 1px solid #efefef;
   border-radius: 4px;
@@ -64,5 +81,9 @@ body {
   box-sizing: border-box;
   &:focus {
     border-color: rgb(212, 210, 207);
+  }
+
+  &-form {
+    margin-top: 20px;
   }
 }

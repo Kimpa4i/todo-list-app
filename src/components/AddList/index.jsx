@@ -25,6 +25,7 @@ const AddList = ({ colors, onAdd }) => {
     selectColor(colors[0].id);
   };
 
+  //добаление объекта в onAddList
   const addlist = () => {
     if (!inputValue) {
       alert("Введите данные");
@@ -37,11 +38,13 @@ const AddList = ({ colors, onAdd }) => {
         colorId: selectedColor,
       })
       .then(({ data }) => {
+        //{name: 'b', colorId: 4, id: 8}
+        console.log(data);
         const listObj = {
           ...data,
           color: {
             name: colors.filter(color => color.id === selectedColor)[0].name,
-          },
+          }, //name: 'b', colorId: 4, id: 8, color: {name:pink}}
         };
         console.log(data);
         console.log(listObj);

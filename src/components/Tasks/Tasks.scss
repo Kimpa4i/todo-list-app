@@ -16,12 +16,36 @@
         opacity: 0.2;
       }
     }
+
+    img {
+      opacity: 0;
+      margin-left: 15px;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
+
   &__items {
     margin-top: 30px;
+
+    h2 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      font-family: "Montserrat";
+      font-weight: 700;
+      font-size: 22px;
+
+      color: #c9d1d3;
+      text-align: center;
+    }
+
     &-row {
       display: flex;
       align-items: center;
+      margin-top: 20px;
 
       input {
         margin-left: 15px;
@@ -29,14 +53,6 @@
         width: 100%;
         font-size: 16px;
       }
-    }
-  }
-
-  img {
-    opacity: 0;
-    margin-left: 15px;
-    &:hover {
-      opacity: 0.8;
     }
   }
 
@@ -90,6 +106,36 @@
             stroke: #b3b3b3;
           }
         }
+      }
+    }
+  }
+
+  &__form {
+    &-new {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      cursor: pointer;
+      opacity: 0.4;
+      transition: opacity 0.15s ease-in-out;
+
+      img {
+        width: 23px;
+        height: 23px;
+      }
+      span {
+        font-size: 16px;
+        margin-left: 14px;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-block {
+      .button {
+        margin-right: 10px;
+        margin-top: 15px;
       }
     }
   }
